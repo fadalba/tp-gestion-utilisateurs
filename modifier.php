@@ -1,6 +1,7 @@
 
 <?php include 'connect_db.php';
 ?>
+<!-- recuperation des données à modifier -->
 <?php
 if(isset($_GET['Id']))
 
@@ -8,10 +9,25 @@ if(isset($_GET['Id']))
     $Id=$_GET['Id'];
     $req=$conn->query("SELECT * FROM user WHERE Id=$Id");
     $mod=$req->fetch();
-    //header("Location:espace_admin.php");
+    
+/*   header("Location:espace_admin.php"); */
+}
+?>
+<!-- modification -->
+<?php
+if(isset($_POST['submit'])){
+  $prenom= $_POST['prenom'];
+  $nom= $_POST['nom'];
+  $email= $_POST['email'];
+  $sql="UPDATE user SET  prenom='$prenom', nom='$nom', email='$email' WHERE Id=$Id"; /* remplacement des données à modifier */
+  $req=$conn->prepare($sql);
+  $mod=$req->execute();
+
+header("Location:espace_admin.php");
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,7 +50,7 @@ if(isset($_GET['Id']))
               <div class="card-body p-5">
               <h2><p align=center>Modification</p></h2>
   
-                <form action="verification.php" method="POST" class="mb-3 mt-md-4 " id="form" enctype="multipart/form-data"> <!-- multipart/form-data pour la photo -->
+                <form action="" method="POST" class="mb-3 mt-md-4 " id="form" enctype="multipart/form-data"> <!-- multipart/form-data pour la photo -->
                       <div class="mb-3 col-md-12 d-flex gap-2">
                       <div class="info1">
                       <label for="text" class="form-label ">Nom</label>

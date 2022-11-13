@@ -76,7 +76,7 @@
                 </div>
                 <div class="mb-3 col-md-6" class="info1">
                   <label for="formFileSm" class="form-label">Ajout photo</label>
-                  <input class="form-control form-control-sm" name="photo"  id="formFileSm" type="file" accept= ".jpg, .png">
+                  <input class="form-control form-control-sm" name="photo"  id="formFileSm" type="file" accept="image/jpg, image/png, image/jpeg">
                   
             </div>
                   <div class="d-grid">

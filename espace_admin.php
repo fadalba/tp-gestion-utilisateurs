@@ -171,9 +171,9 @@ $list->execute();
 
 
                 if((isset($_GET['search'])) && !empty($_GET['search'])){
-                  /* permet d'effectuer la recherche   */
+                  /* permet d'effectuer la recherche  soit par nom ou prenom ou matricule */
                   $search= $_GET['search'];
-                  $list=$conn->query("SELECT * FROM user WHERE état=1 AND nom LIKE '%$search%' AND Id!=$id");
+                  $list=$conn->query("SELECT * FROM user WHERE état=1 AND nom LIKE '%$search%' OR prenom LIKE '%$search%' OR matricule LIKE '%$search%' AND Id!=$id");
                   $list->execute();
                   //var_dump($list->execute());
                  

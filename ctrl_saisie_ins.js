@@ -71,8 +71,8 @@ function validateForm() {
     //PASSWORD
     if(passwordInput.value.trim()==''){
         setError(passwordInput, 'Le mot de passe ne doit pas etre vide');
-    }else if(passwordInput.value.trim().length <6 || passwordInput.value.trim().length >20){
-        setError(passwordInput, 'Minimum 6 caracteres pour le mot de passe');
+    }else if(passwordInput.value.trim().length <2|| passwordInput.value.trim().length >20){
+        setError(passwordInput, 'Minimum 2 caracteres pour le mot de passe');
     }else {
         setSuccess(passwordInput);
     }
