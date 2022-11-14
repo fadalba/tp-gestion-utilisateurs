@@ -4,7 +4,7 @@
 <?php
 
   // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ /*  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); */
   if(isset($_POST['submit2'])){
  
     $date_inscrit=date('y-m-d h:i:s');
@@ -25,16 +25,16 @@
    $mdp= password_hash($mdp, PASSWORD_DEFAULT);
    /* ***********************************fin cryptage mot de passe **************************** */
    /*************************vérification mail existant*************************/ 
-   $select_mail = $conn->prepare("SELECT email FROM user WHERE email = ? ");
+   $select_mail = $conn->prepare("SELECT *  FROM user WHERE email = ? ");
    $select_mail->execute([$email]);
-   
-   
+      
    if ($select_mail->rowCount() > 0)
    {
        $message [] = "l'adresse mail existe déja";
+       header('location:inscription.php');
    }
-   var_dump($select_mail);
-   exit;
+ 
+ 
   
  /*************************fin vérification mail existant*************************/ 
   

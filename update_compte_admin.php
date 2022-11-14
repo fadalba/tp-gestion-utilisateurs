@@ -13,12 +13,12 @@ if (isset($_POST['modif_image'])) {
     }
     else {
         
-        unlink('../../inscription/photo_utilisateur/'. $old_photo);
-        $up = "UPDATE  users SET `image` = ? WHERE id = $id";
+        unlink('./inscription/photo'. $old_photo);
+        $up = "UPDATE  user SET `image` = ? WHERE Id = $id";
         $modification = $conn->prepare($up);
         $modification->execute([$photo]);
         if ($modification) {
-            move_uploaded_file($photo_tmp, '../../inscription/photo_utilisateur/'. $photo);
+            move_uploaded_file($photo_tmp, './inscription/photo'. $photo);
             $affiche[] = "l'image est ne doit pas être supérieur à 4 mo";
             $success = "<div id=\"réussie\" ></div>";
         }

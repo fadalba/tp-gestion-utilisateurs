@@ -45,6 +45,10 @@
                     <label for="email" class="form-label ">Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Entrer votre adresse mail">
                     <p> error message</p>
+                    <?php if (isset($message)) {
+                      echo $message;
+                    }
+                    ?>
                     </div>
                     <div class="mb-3 col-md-6" >
                       
