@@ -118,7 +118,7 @@ $list->execute();
                     <p>Tableau de bord</p>
                         <a class="nav-link active" aria-current="page" href="espace_admin.php">Utilisateurs</a>
                         <a class="nav-link" href="liste_archive.php">Archives</a>
-                        <a class="nav-link" href="paremetre.php">Paramètre</a>
+                        <a class="nav-link" href="parametre.php">Paramètre</a>
                      
                 </div>
         </div>
