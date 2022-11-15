@@ -23,10 +23,12 @@
           <div class="col-12 col-md-8 col-lg-6">
             <div class="card bg-white">
               <div class="card-body p-5">
-              <h2><p align=center>Inscription</p></h2>
-  
+                <div >
+                  <span class="text-danger"><?= $_GET['erreur'] ?? null ?></span>
+                </div>
                 <form action="" method="POST" class="mb-3 mt-md-4 " id="form" enctype="multipart/form-data"> <!-- multipart/form-data pour la photo -->
-                      <div class="mb-3 col-md-12 d-flex gap-2">
+                
+                <div class="mb-3 col-md-12 d-flex gap-2">
                       <div class="info1">
                       <label for="text" class="form-label ">Nom</label>
                       <input type="text" class="form-control" name="nom" id="nom" placeholder="Entrer votre nom">
@@ -46,9 +48,9 @@
                     <input type="email" class="form-control" name="email" id="email" placeholder="Entrer votre adresse mail">
                     <p> error message</p>
                     <?php if (isset($message)) {
-                  
+                       {
                       echo $message;
-                    
+                    }
                     }
                     ?>
                     </div>
@@ -82,7 +84,7 @@
                 </div>
                 <div class="mb-3 col-md-6" class="info1">
                   <label for="formFileSm" class="form-label">Ajout photo</label>
-                  <input class="form-control form-control-sm" name="photo"  id="formFileSm" type="file" accept="/image.jpg, /image.png,/image.jpeg" >
+                  <input class="form-control form-control-sm" name="photo"  id="formFileSm" type="file" accept=".jpg,.png,.jpeg" >
                   
             </div>
                   <div class="d-grid">
