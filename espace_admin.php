@@ -103,7 +103,7 @@ $list->execute();
 <div><br>
           <form method="GET" action=""  >
       <div style=" padding-left:70%;display:flex;justify-content:center;align-items:center;">
-      <input class="form_control" type="search" placeholder="rechercher"style="height: 30px;" name="search">
+      <input class="form_control" type="search" placeholder="nom ou prenom ou matricule"style="height: 30px;" name="search">
       <button class="btn-blue" type="submit"style="height: 30px;" ><span class="material-symbols-outlined">search
 </span></button>
       </div>

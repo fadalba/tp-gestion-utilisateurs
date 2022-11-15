@@ -5,8 +5,8 @@
 
   // set the PDO error mode to exception
  /*  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); */
-  if(isset($_POST['submit2'])){
- 
+  if(isset($_POST['submit2'])){ // on vérifie avec isset c'est la valeur existe
+ // on déclare des variables en utilisants les mêmes que la base de donnéee
     $date_inscrit=date('y-m-d h:i:s');
     $nom=$_POST["nom"];
     $prenom=$_POST["prenom"];
@@ -24,25 +24,26 @@
 
    $mdp= password_hash($mdp, PASSWORD_DEFAULT);
    /* ***********************************fin cryptage mot de passe **************************** */
-   /*************************vérification mail existant*************************/ 
-   $select_mail = $conn->prepare("SELECT *  FROM user WHERE email = ? ");
+   /*************************vérification mail existant*****************************************/ 
+    $select_mail = $conn->prepare("SELECT * FROM user WHERE email = ?  limit 1 ");
    $select_mail->execute([$email]);
-      
-   if ($select_mail->rowCount() > 0)
-   {
-       $message [] = "l'adresse mail existe déja";
-       header('location:inscription.php');
-   }
- 
- 
+      // var_dump($select_mail->fetch());die;
+      $check = $select_mail->fetch();
+   if ($check != false)
   
+   {
+      /*  $message [] = "l'adresse mail existe déja"; */
+       echo "inscrit  avec succès";
+    
+       header('location:inscription.php');
+   }else if ($conn->exec($sql)) {
  /*************************fin vérification mail existant*************************/ 
   
    /* ***********************************requete insertion sur la table user bd**************************** */
     $sql = "INSERT INTO user (prenom, nom, mot_de_passe, état,email,`role`, date_inscrit,photo)
     VALUES('$prenom','$nom','$mdp',1,'$email','$role', '$date_inscrit','$photo')";
           
-    if ($conn->exec($sql)) {
+    
       echo "inscrit  avec succès";
       header("Location:index.php");
      

@@ -1,4 +1,4 @@
-<?php include 'connect_db.php';
+<?php include 'verification.php';
 ?>
 
 
@@ -25,7 +25,7 @@
               <div class="card-body p-5">
               <h2><p align=center>Inscription</p></h2>
   
-                <form action="verification.php" method="POST" class="mb-3 mt-md-4 " id="form" enctype="multipart/form-data"> <!-- multipart/form-data pour la photo -->
+                <form action="" method="POST" class="mb-3 mt-md-4 " id="form" enctype="multipart/form-data"> <!-- multipart/form-data pour la photo -->
                       <div class="mb-3 col-md-12 d-flex gap-2">
                       <div class="info1">
                       <label for="text" class="form-label ">Nom</label>
@@ -46,7 +46,9 @@
                     <input type="email" class="form-control" name="email" id="email" placeholder="Entrer votre adresse mail">
                     <p> error message</p>
                     <?php if (isset($message)) {
+                  
                       echo $message;
+                    
                     }
                     ?>
                     </div>
@@ -80,7 +82,7 @@
                 </div>
                 <div class="mb-3 col-md-6" class="info1">
                   <label for="formFileSm" class="form-label">Ajout photo</label>
-                  <input class="form-control form-control-sm" name="photo"  id="formFileSm" type="file" accept="image/jpg, image/png, image/jpeg">
+                  <input class="form-control form-control-sm" name="photo"  id="formFileSm" type="file" accept="/image.jpg, /image.png,/image.jpeg" >
                   
             </div>
                   <div class="d-grid">
