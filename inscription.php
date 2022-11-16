@@ -24,7 +24,7 @@
             <div class="card bg-white">
               <div class="card-body p-5">
                 <div >
-                  <span class="text-danger"><?= $_GET['erreur'] ?? null ?></span>
+                  <span class="text-danger"><?= $_GET['erreur'] ?? null ?></span> <!-- afficher l'erreur si le mail est déja inscrit dans la BD -->
                 </div>
                 <form action="" method="POST" class="mb-3 mt-md-4 " id="form" enctype="multipart/form-data"> <!-- multipart/form-data pour la photo -->
                 
@@ -47,12 +47,7 @@
                     <label for="email" class="form-label ">Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Entrer votre adresse mail">
                     <p> error message</p>
-                    <?php if (isset($message)) {
-                       {
-                      echo $message;
-                    }
-                    }
-                    ?>
+                    
                     </div>
                     <div class="mb-3 col-md-6" >
                       

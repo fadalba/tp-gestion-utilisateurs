@@ -3,8 +3,6 @@
 
 <?php
 
-  // set the PDO error mode to exception
- /*  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); */
   if(isset($_POST['submit2'])){ // on vérifie avec isset c'est la valeur existe
  // on déclare des variables en utilisants les mêmes que la base de donnéee
     $date_inscrit=date('y-m-d h:i:s');
@@ -15,7 +13,7 @@
     $role=$_POST["role"];
     $photo = null;
     /*********************************ajout photo************************************ */ 
-    if($_FILES['photo']['size'] !== 0){
+    if($_FILES['photo']['size'] !== 0){ /* vérification taille fichier */
       $photo=file_get_contents($_FILES['photo']['tmp_name']) ?? null;
     }
       
